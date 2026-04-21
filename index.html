@@ -1,216 +1,1023 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Imersão Acelerador GMV — Cuiabá</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Imersão Acelerador GMV — 23/05/2026</title>
+  <meta name="description" content="A próxima turma da Imersão GMV já está aberta. Um dia presencial para empresários que querem alinhar Gestão, Marketing e Vendas e crescer com mais previsibilidade." />
+  <style>
+    :root{
+      --bg:#06090f;
+      --bg-2:#0b1220;
+      --panel:#111827;
+      --panel-2:#0f172a;
+      --card:rgba(255,255,255,.05);
+      --line:rgba(255,255,255,.12);
+      --text:#f8fafc;
+      --muted:#cbd5e1;
+      --muted-2:#94a3b8;
+      --accent:#ff6a00;
+      --accent-2:#ff9e57;
+      --success:#22c55e;
+      --shadow:0 24px 60px rgba(0,0,0,.35);
+      --radius:24px;
+      --radius-sm:18px;
+      --max:1180px;
+    }
 
-<style>
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255,106,0,.14), transparent 30%),
+        radial-gradient(circle at top right, rgba(255,106,0,.08), transparent 28%),
+        linear-gradient(180deg, #07101a 0%, #0b1220 46%, #06090f 100%);
+      color:var(--text);
+    }
 
-body{
-margin:0;
-font-family: Arial, sans-serif;
-background:#0b1220;
-color:#ffffff;
-}
+    .container{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
+    }
 
-.container{
-max-width:900px;
-margin:auto;
-padding:30px 20px;
-}
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(12px);
+      background:rgba(6,9,15,.78);
+      border-bottom:1px solid rgba(255,255,255,.07);
+    }
 
-.hero{
-text-align:center;
-margin-top:30px;
-}
+    .nav{
+      min-height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
 
-.badge{
-background:#ff6a00;
-display:inline-block;
-padding:8px 18px;
-border-radius:8px;
-font-weight:bold;
-margin-bottom:15px;
-}
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:900;
+      letter-spacing:-.04em;
+      font-size:1.35rem;
+      white-space:nowrap;
+    }
 
-h1{
-font-size:52px;
-line-height:1.15;
-margin-bottom:20px;
-}
+    .logo-mark{
+      width:14px;height:14px;border-radius:4px;
+      background:linear-gradient(135deg,var(--accent),#ffb06a);
+      box-shadow:0 0 24px rgba(255,106,0,.35);
+    }
 
-.orange{ color:#ff6a00; }
+    .logo span small{
+      display:block;
+      color:var(--accent-2);
+      font-size:.72rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-weight:800;
+    }
 
-.sub{
-font-size:22px;
-color:#d1d5db;
-margin-bottom:30px;
-}
+    .nav-links{
+      display:flex;gap:18px;align-items:center;
+      color:var(--muted);font-weight:600;font-size:.95rem;
+    }
 
-.urgency{
-background:#ff6a00;
-color:white;
-padding:15px;
-border-radius:10px;
-font-size:20px;
-font-weight:bold;
-margin:25px 0;
-text-align:center;
-}
+    .nav-links a{color:inherit;text-decoration:none}
 
-.card{
-background:#121a2b;
-padding:30px;
-border-radius:16px;
-margin:25px 0;
-box-shadow:0 20px 50px rgba(0,0,0,0.6);
-}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:56px;
+      padding:0 24px;
+      border-radius:999px;
+      border:1px solid transparent;
+      text-decoration:none;
+      font-weight:800;
+      letter-spacing:.01em;
+      transition:.2s ease;
+      cursor:pointer;
+    }
 
-.card h2{
-color:#ff6a00;
-margin-bottom:15px;
-}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{
+      background:linear-gradient(135deg,var(--accent),#ff8a2b);
+      color:#fff;
+      box-shadow:0 16px 36px rgba(255,106,0,.24);
+    }
+    .btn-secondary{
+      color:#fff;
+      border-color:rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+    }
 
-ul{
-line-height:1.9;
-font-size:18px;
-}
+    .hero{padding:58px 0 34px}
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      gap:24px;
+      align-items:stretch;
+    }
 
-.info{
-text-align:center;
-font-size:20px;
-margin-top:30px;
-line-height:1.8;
-}
+    .hero-copy,.hero-aside,.card,.proof-card,.pillar,.speaker,.timeline-item,.faq-item,.offer-box{
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.035));
+      border:1px solid var(--line);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+    }
 
-.cta{
-text-align:center;
-margin-top:40px;
-}
+    .hero-copy{
+      padding:36px;
+      position:relative;
+      overflow:hidden;
+    }
 
-.btn{
-background:#ff6a00;
-color:white;
-border:none;
-padding:22px 48px;
-font-size:24px;
-border-radius:12px;
-cursor:pointer;
-font-weight:bold;
-}
+    .hero-copy::before{
+      content:"";
+      position:absolute;
+      inset:auto -70px -80px auto;
+      width:240px;height:240px;
+      background:radial-gradient(circle, rgba(255,106,0,.18), transparent 68%);
+      pointer-events:none;
+    }
 
-.btn:hover{ background:#e65c00; }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-height:38px;
+      padding:8px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,106,0,.2);
+      background:rgba(255,106,0,.1);
+      color:var(--accent-2);
+      font-size:.78rem;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+    }
 
-.guarantee{
-text-align:center;
-margin-top:25px;
-font-size:16px;
-color:#9ca3af;
-}
+    .eyebrow .dot{
+      width:8px;height:8px;border-radius:999px;
+      background:var(--accent);
+      box-shadow:0 0 18px rgba(255,106,0,.55);
+    }
 
-footer{
-text-align:center;
-margin-top:60px;
-font-size:14px;
-color:#64748b;
-}
+    h1{
+      margin:18px 0 16px;
+      font-size:clamp(2.35rem, 5vw, 4.6rem);
+      line-height:.95;
+      letter-spacing:-.05em;
+    }
 
-</style>
+    h1 .accent{color:var(--accent)}
+    .hero-sub{
+      margin:0;
+      color:var(--muted);
+      font-size:1.1rem;
+      line-height:1.85;
+      max-width:62ch;
+    }
 
+    .hero-points{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;
+      margin:26px 0 28px;
+    }
+
+    .point{
+      padding:16px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.04);
+    }
+
+    .point strong{display:block;margin-bottom:6px;font-size:1rem}
+    .point span{color:var(--muted);font-size:.95rem;line-height:1.65}
+
+    .actions{display:flex;flex-wrap:wrap;gap:12px}
+
+    .hero-aside{
+      padding:24px;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .offer-chip{
+      display:inline-flex;
+      width:fit-content;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(34,197,94,.12);
+      border:1px solid rgba(34,197,94,.18);
+      color:#9cf6b4;
+      font-size:.75rem;
+      font-weight:900;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .price-wrap{
+      padding:22px;
+      border-radius:22px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .from{
+      color:var(--muted);
+      font-size:1rem;
+      font-weight:700;
+      margin-bottom:10px;
+    }
+    .from s{opacity:.9}
+    .price{
+      font-size:clamp(3rem, 7vw, 5.2rem);
+      line-height:.9;
+      font-weight:900;
+      letter-spacing:-.07em;
+      color:#fff;
+    }
+
+    .price small{
+      font-size:.34em;
+      vertical-align:top;
+      color:var(--accent-2);
+      margin-right:6px;
+    }
+
+    .mini-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+      margin-top:14px;
+    }
+
+    .mini{
+      padding:14px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.04);
+    }
+
+    .mini-label{
+      color:var(--muted-2);
+      font-size:.74rem;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      font-weight:800;
+      margin-bottom:6px;
+    }
+
+    .mini-value{
+      font-size:1rem;
+      font-weight:800;
+      line-height:1.4;
+    }
+
+    .countdown{
+      padding:18px;
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(135deg, rgba(255,106,0,.12), rgba(255,255,255,.03));
+    }
+
+    .countdown h3{
+      margin:0 0 12px;
+      font-size:1rem;
+      letter-spacing:-.02em;
+    }
+
+    .count-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:10px;
+    }
+
+    .count-item{
+      padding:14px 10px;
+      border-radius:16px;
+      background:rgba(0,0,0,.18);
+      border:1px solid rgba(255,255,255,.06);
+      text-align:center;
+    }
+
+    .count-item strong{
+      display:block;
+      font-size:1.8rem;
+      line-height:1;
+      letter-spacing:-.04em;
+    }
+
+    .count-item span{
+      display:block;
+      margin-top:6px;
+      font-size:.7rem;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-weight:800;
+    }
+
+    section{padding:28px 0}
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:20px;
+      margin-bottom:18px;
+    }
+
+    .section-head h2{
+      margin:0;
+      font-size:clamp(1.6rem, 3vw, 2.6rem);
+      line-height:1;
+      letter-spacing:-.04em;
+    }
+
+    .section-head p{
+      margin:0;
+      max-width:760px;
+      color:var(--muted);
+      line-height:1.8;
+    }
+
+    .proof-grid,.pillar-grid,.speaker-grid,.faq-grid{
+      display:grid;
+      gap:16px;
+    }
+
+    .proof-grid{grid-template-columns:repeat(4,1fr)}
+    .proof-card{padding:22px}
+    .proof-card strong{
+      display:block;
+      font-size:2rem;
+      color:var(--accent-2);
+      line-height:1;
+      letter-spacing:-.04em;
+      margin-bottom:10px;
+    }
+    .proof-card p{margin:0;color:var(--muted);line-height:1.7}
+
+    .pillar-grid{grid-template-columns:repeat(3,1fr)}
+    .pillar,.speaker,.timeline-item,.faq-item,.offer-box{padding:24px}
+    .pillar h3,.speaker h3{margin:0 0 8px;font-size:1.35rem;letter-spacing:-.03em}
+    .pillar p,.speaker p,.timeline-item p,.faq-item p,.offer-box p{margin:0;color:var(--muted);line-height:1.75}
+    .pillar .kicker,.speaker .kicker{
+      display:inline-flex;
+      margin-bottom:12px;
+      padding:7px 11px;
+      border-radius:999px;
+      font-size:.72rem;
+      font-weight:900;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      background:rgba(255,106,0,.1);
+      color:var(--accent-2);
+      border:1px solid rgba(255,106,0,.18);
+    }
+
+    .audience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{padding:24px}
+    .card h3{margin:0 0 10px;font-size:1.28rem;letter-spacing:-.03em}
+    .card p{margin:0;color:var(--muted);line-height:1.75}
+
+    .timeline{display:grid;gap:14px}
+    .timeline-item{
+      display:grid;
+      grid-template-columns:150px 1fr;
+      gap:18px;
+      align-items:start;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .timeline-item::before{
+      content:"";
+      position:absolute;
+      inset:0 auto 0 0;
+      width:4px;
+      background:linear-gradient(180deg, var(--accent), var(--accent-2));
+    }
+
+    .time{
+      padding-left:10px;
+      font-size:1.15rem;
+      font-weight:900;
+      color:var(--accent-2);
+      letter-spacing:-.02em;
+    }
+
+    .offer-layout{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:18px;
+      align-items:stretch;
+    }
+
+    .offer-box h3{
+      margin:0 0 10px;
+      font-size:1.5rem;
+      letter-spacing:-.03em;
+    }
+
+    .compare{
+      display:grid;
+      gap:12px;
+      margin-top:16px;
+    }
+
+    .compare-item{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:center;
+      padding:14px 16px;
+      border-radius:18px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .compare-item span:first-child{
+      color:var(--muted);
+    }
+
+    .compare-item strong{
+      font-size:1.05rem;
+      letter-spacing:-.02em;
+    }
+
+    .offer-side{
+      padding:24px;
+      border-radius:26px;
+      background:linear-gradient(180deg, rgba(255,106,0,.12), rgba(255,255,255,.04));
+      border:1px solid rgba(255,106,0,.18);
+      box-shadow:var(--shadow);
+    }
+
+    .offer-side .tag{
+      display:inline-flex;
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:.74rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-weight:900;
+      background:rgba(255,255,255,.08);
+      color:#fff;
+    }
+
+    .offer-side .big-price{
+      margin:14px 0 8px;
+      font-size:clamp(3.4rem, 8vw, 6rem);
+      line-height:.9;
+      letter-spacing:-.08em;
+      font-weight:900;
+    }
+
+    .offer-side .big-price small{
+      font-size:.32em;
+      color:var(--accent-2);
+      margin-right:6px;
+      vertical-align:top;
+    }
+
+    .offer-side .normal{
+      color:var(--muted);
+      font-size:1rem;
+      margin-bottom:6px;
+    }
+
+    .faq-grid{grid-template-columns:1fr 1fr}
+    .faq-item h3{margin:0 0 10px;font-size:1.08rem;letter-spacing:-.02em}
+
+    .final{
+      padding-bottom:90px;
+    }
+
+    .final-box{
+      padding:30px;
+      border-radius:28px;
+      border:1px solid rgba(255,106,0,.18);
+      background:linear-gradient(135deg, rgba(255,106,0,.18), rgba(255,255,255,.04));
+      box-shadow:var(--shadow);
+      text-align:center;
+    }
+
+    .final-box h2{
+      margin:0 0 12px;
+      font-size:clamp(2rem, 4vw, 3.5rem);
+      letter-spacing:-.04em;
+      line-height:.95;
+    }
+
+    .final-box p{
+      max-width:760px;
+      margin:0 auto;
+      color:#e2e8f0;
+      line-height:1.8;
+    }
+
+    .mobile-cta{
+      position:fixed;
+      left:14px;
+      right:14px;
+      bottom:14px;
+      z-index:60;
+      display:none;
+      padding:12px;
+      border-radius:20px;
+      background:rgba(6,9,15,.88);
+      backdrop-filter:blur(14px);
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+    }
+
+    .mobile-cta .btn{width:100%}
+
+    footer{
+      text-align:center;
+      color:var(--muted-2);
+      font-size:.9rem;
+      padding:0 0 110px;
+    }
+
+    @media (max-width: 1080px){
+      .hero-grid,.offer-layout{grid-template-columns:1fr}
+      .proof-grid{grid-template-columns:repeat(2,1fr)}
+      .pillar-grid,.speaker-grid,.audience-grid,.faq-grid{grid-template-columns:1fr 1fr}
+    }
+
+    @media (max-width: 780px){
+      .nav-links{display:none}
+      .proof-grid,.pillar-grid,.speaker-grid,.audience-grid,.faq-grid,.hero-points{grid-template-columns:1fr}
+      .section-head{flex-direction:column;align-items:flex-start}
+      .timeline-item{grid-template-columns:1fr}
+      .mobile-cta{display:block}
+      footer{padding-bottom:120px}
+      .count-grid{grid-template-columns:repeat(2,1fr)}
+    }
+  </style>
 </head>
-
 <body>
+  <div class="topbar">
+    <div class="container nav">
+      <div class="logo">
+        <div class="logo-mark"></div>
+        <span>Acelerador GMV<small>Gestão • Marketing • Vendas</small></span>
+      </div>
 
-<div class="container">
+      <div class="nav-links">
+        <a href="#pilares">Pilares</a>
+        <a href="#palestrantes">Palestrantes</a>
+        <a href="#cronograma">Cronograma</a>
+        <a href="#investimento">Investimento</a>
+      </div>
 
-<div class="hero">
+      <a class="btn btn-primary" href="https://pay.kiwify.com.br/x57S5zY" target="_blank" rel="noopener noreferrer">Garantir minha vaga</a>
+    </div>
+  </div>
 
-<div class="badge">IMERSÃO PRESENCIAL — CUIABÁ</div>
+  <main>
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="dot"></span> Próxima edição • 23/05/2026</div>
 
-<h1>
-PARE DE IMPROVISAR<br>
-<span class="orange">E COMECE A CRESCER COM MÉTODO</span>
-</h1>
+          <h1>
+            A próxima turma da <span class="accent">Imersão GMV</span><br>
+            já está aberta.
+          </h1>
 
-<p class="sub">
-Um dia de implementação para empresários que querem previsibilidade de faturamento e clareza estratégica.
-</p>
+          <p class="hero-sub">
+            Um dia presencial para empresários e empreendedores que querem alinhar
+            <strong>Gestão, Marketing e Vendas</strong>, sair da improvisação e crescer com
+            mais clareza, estrutura e previsibilidade.
+          </p>
 
-<div class="urgency">
-⚠️ VAGAS LIMITADAS — LOTE ZERO R$ 297
-</div>
+          <div class="hero-points">
+            <div class="point">
+              <strong>2 edições já realizadas</strong>
+              <span>Formato validado na prática, com execução real e autoridade crescente.</span>
+            </div>
+            <div class="point">
+              <strong>1 dia direto ao ponto</strong>
+              <span>Sem enrolação. Conteúdo aplicável, visão prática e direcionamento claro.</span>
+            </div>
+            <div class="point">
+              <strong>Os 3 pilares do crescimento</strong>
+              <span>Gestão para organizar, Marketing para atrair e Vendas para converter.</span>
+            </div>
+            <div class="point">
+              <strong>Lote Zero por R$ 297</strong>
+              <span>Condição promocional para a próxima turma da imersão.</span>
+            </div>
+          </div>
 
-</div>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://pay.kiwify.com.br/x57S5zY" target="_blank" rel="noopener noreferrer">Garantir minha vaga agora</a>
+            <a class="btn btn-secondary" href="#cronograma">Ver cronograma</a>
+          </div>
+        </div>
 
-<div class="card">
+        <aside class="hero-aside">
+          <span class="offer-chip">Lote Zero aberto</span>
 
-<h2>O que você vai estruturar em 1 dia</h2>
+          <div class="price-wrap">
+            <div class="from">De <s>R$ 497</s></div>
+            <div class="price"><small>R$</small>297</div>
 
-<ul>
-<li>✔ Gestão com processos, pessoas e indicadores</li>
-<li>✔ Marketing que gera demanda constante</li>
-<li>✔ Vendas organizadas em um sistema previsível</li>
-<li>✔ Clareza absoluta do que fazer primeiro</li>
-<li>✔ Plano prático para executar imediatamente</li>
-</ul>
+            <div class="mini-grid">
+              <div class="mini">
+                <div class="mini-label">Data</div>
+                <div class="mini-value">23/05/2026</div>
+              </div>
+              <div class="mini">
+                <div class="mini-label">Formato</div>
+                <div class="mini-value">1 dia presencial</div>
+              </div>
+              <div class="mini">
+                <div class="mini-label">Cidade</div>
+                <div class="mini-value">Cuiabá</div>
+              </div>
+              <div class="mini">
+                <div class="mini-label">Público</div>
+                <div class="mini-value">Empresários e empreendedores</div>
+              </div>
+            </div>
+          </div>
 
-</div>
+          <div class="countdown">
+            <h3>Contagem para a próxima turma</h3>
+            <div class="count-grid">
+              <div class="count-item"><strong id="days">00</strong><span>Dias</span></div>
+              <div class="count-item"><strong id="hours">00</strong><span>Horas</span></div>
+              <div class="count-item"><strong id="minutes">00</strong><span>Min</span></div>
+              <div class="count-item"><strong id="seconds">00</strong><span>Seg</span></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-<div class="card">
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2>Prova, mecanismo e clareza de oferta</h2>
+          <p>
+            A página agora deixa de parecer apenas “um evento” e passa a se comportar como uma oferta validada, com mais elementos para aumentar percepção de valor e conversão.
+          </p>
+        </div>
 
-<h2>Para quem é essa imersão</h2>
+        <div class="proof-grid">
+          <div class="proof-card">
+            <strong>2</strong>
+            <p>Edições já realizadas neste formato, reforçando validação prática do projeto.</p>
+          </div>
+          <div class="proof-card">
+            <strong>3</strong>
+            <p>Pilares integrados no mesmo evento: Gestão, Marketing e Vendas.</p>
+          </div>
+          <div class="proof-card">
+            <strong>1</strong>
+            <p>Dia presencial intenso, construído para gerar clareza, estrutura e execução.</p>
+          </div>
+          <div class="proof-card">
+            <strong>R$ 297</strong>
+            <p>Condição promocional de entrada para a próxima turma da Imersão GMV.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<ul>
-<li>✔ Empresários e donos de negócio</li>
-<li>✔ MEIs e autônomos</li>
-<li>✔ Profissionais liberais</li>
-<li>✔ Gestores e líderes</li>
-<li>✔ Quem quer crescer no digital ou estruturar a empresa</li>
-</ul>
+    <section id="pilares">
+      <div class="container">
+        <div class="section-head">
+          <h2>Os 3 pilares da Imersão GMV</h2>
+          <p>
+            O diferencial da GMV não está em conteúdo solto. Está na integração prática entre gestão,
+            marketing e vendas para o participante sair com visão mais clara do que precisa ajustar primeiro.
+          </p>
+        </div>
 
-</div>
+        <div class="pillar-grid">
+          <div class="pillar">
+            <div class="kicker">Pilar 1</div>
+            <h3>Gestão</h3>
+            <p>
+              Processos, pessoas, indicadores, organização e visão estrutural para que a empresa deixe de crescer no improviso.
+            </p>
+          </div>
+          <div class="pillar">
+            <div class="kicker">Pilar 2</div>
+            <h3>Marketing</h3>
+            <p>
+              Posicionamento, conteúdo, tráfego e leitura mais estratégica da demanda para atrair as pessoas certas.
+            </p>
+          </div>
+          <div class="pillar">
+            <div class="kicker">Pilar 3</div>
+            <h3>Vendas</h3>
+            <p>
+              Processo comercial, abordagem, técnicas e previsibilidade para transformar movimento em faturamento.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="card">
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2>Para quem é essa imersão</h2>
+          <p>
+            A comunicação agora foca com mais precisão em quem realmente tem maior aderência à proposta do evento.
+          </p>
+        </div>
 
-<h2>O problema da maioria das empresas</h2>
+        <div class="audience-grid">
+          <div class="card">
+            <h3>Empresários e donos de negócio</h3>
+            <p>
+              Para quem quer organizar melhor a empresa, sair da dependência de tentativa e erro e crescer com mais direção.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Empreendedores em fase de estruturação</h3>
+            <p>
+              Para quem já entendeu que esforço sem sistema gera cansaço, mas não garante previsibilidade.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Líderes que precisam alinhar operação e crescimento</h3>
+            <p>
+              Para quem quer clareza sobre gestão, marketing e vendas dentro da mesma lógica prática.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<ul>
-<li>❌ Muito esforço e pouco resultado</li>
-<li>❌ Falta de direção estratégica</li>
-<li>❌ Marketing sem consistência</li>
-<li>❌ Vendas imprevisíveis</li>
-<li>❌ Crescimento baseado em tentativa e erro</li>
-</ul>
+    <section id="palestrantes">
+      <div class="container">
+        <div class="section-head">
+          <h2>Palestrantes e temas oficiais</h2>
+          <p>
+            Os nomes e temas fortalecem o valor percebido e ajudam o visitante a entender que haverá profundidade e complementaridade no dia.
+          </p>
+        </div>
 
-</div>
+        <div class="speaker-grid">
+          <div class="speaker">
+            <div class="kicker">08h30</div>
+            <h3>Sidney Paiva</h3>
+            <p><strong>Processos Operacionais</strong> — organização interna, estrutura, rotina e lógica operacional do negócio.</p>
+          </div>
 
-<div class="info">
+          <div class="speaker">
+            <div class="kicker">10h00</div>
+            <h3>Luana Martins</h3>
+            <p><strong>Mente do Empresário</strong> — clareza de decisão, postura, mentalidade e fortalecimento interno.</p>
+          </div>
 
-📍 Associação Comercial de Cuiabá<br>
-🗓 28 de fevereiro de 2026<br>
-⏰ 08h às 18h<br>
-💰 Lote Zero: <strong>R$ 297</strong>
+          <div class="speaker">
+            <div class="kicker">13h30</div>
+            <h3>Rafael Cerralvo</h3>
+            <p><strong>Tráfego Pago e Análise de Dados</strong> — aquisição, leitura de números e decisões mais inteligentes.</p>
+          </div>
 
-</div>
+          <div class="speaker">
+            <div class="kicker">14h30</div>
+            <h3>Eliane Silva</h3>
+            <p><strong>Técnicas de Vendas</strong> — abordagem, condução e consistência comercial.</p>
+          </div>
 
-<div class="cta">
+          <div class="speaker">
+            <div class="kicker">15h30+</div>
+            <h3>Ailton Lopes</h3>
+            <p><strong>Estratégia de Marketing</strong> — integração dos pilares e visão prática de crescimento.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<a href="https://pay.kiwify.com.br/x57S5zY">
-<button class="btn">GARANTIR MINHA VAGA AGORA</button>
-</a>
+    <section id="cronograma">
+      <div class="container">
+        <div class="section-head">
+          <h2>Cronograma da Imersão GMV</h2>
+          <p>
+            O cronograma deixa a experiência mais concreta e reduz objeção. A pessoa começa a enxergar o dia acontecendo.
+          </p>
+        </div>
 
-</div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="time">08h00</div>
+            <div>
+              <h3>Abertura Oficial</h3>
+              <p>Boas-vindas, alinhamento do dia e introdução à proposta da imersão.</p>
+            </div>
+          </div>
 
-<div class="guarantee">
-✔ Evento presencial intensivo • Conteúdo prático • Sem enrolação
-</div>
+          <div class="timeline-item">
+            <div class="time">08h30</div>
+            <div>
+              <h3>Sidney Paiva — Processos Operacionais</h3>
+              <p>Como dar estrutura, lógica operacional e sustentação para o crescimento.</p>
+            </div>
+          </div>
 
-<footer>
-Acelerador GMV — Gestão • Marketing • Vendas
-</footer>
+          <div class="timeline-item">
+            <div class="time">10h00</div>
+            <div>
+              <h3>Luana Martins — Mente do Empresário</h3>
+              <p>Clareza, decisão e fortalecimento da mente que sustenta a empresa.</p>
+            </div>
+          </div>
 
-</div>
+          <div class="timeline-item">
+            <div class="time">12h30</div>
+            <div>
+              <h3>Almoço</h3>
+              <p>Pausa estratégica, networking e troca entre participantes.</p>
+            </div>
+          </div>
 
+          <div class="timeline-item">
+            <div class="time">13h30</div>
+            <div>
+              <h3>Rafael Cerralvo — Tráfego Pago e Análise de Dados</h3>
+              <p>Como usar mídia e dados para gerar decisões melhores e resultados consistentes.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="time">14h30</div>
+            <div>
+              <h3>Eliane Silva — Técnicas de Vendas</h3>
+              <p>Processo comercial, abordagem e técnicas para vender com mais segurança.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="time">15h30</div>
+            <div>
+              <h3>Ailton Lopes — Estratégia de Marketing</h3>
+              <p>Posicionamento, direção estratégica e integração prática dos pilares da GMV.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="investimento">
+      <div class="container offer-layout">
+        <div class="offer-box">
+          <h3>O que você leva ao entrar na Imersão GMV</h3>
+          <p>
+            A proposta da GMV não é despejar teoria. É fazer o participante sair com mais clareza, mais estrutura e mais direção sobre o que precisa ajustar.
+          </p>
+
+          <div class="compare">
+            <div class="compare-item">
+              <span>Formato</span>
+              <strong>1 dia presencial direto ao ponto</strong>
+            </div>
+            <div class="compare-item">
+              <span>Foco</span>
+              <strong>Gestão + Marketing + Vendas</strong>
+            </div>
+            <div class="compare-item">
+              <span>Entrega</span>
+              <strong>Conteúdo prático e aplicável</strong>
+            </div>
+            <div class="compare-item">
+              <span>Resultado esperado</span>
+              <strong>Mais clareza e previsibilidade</strong>
+            </div>
+          </div>
+        </div>
+
+        <aside class="offer-side">
+          <span class="tag">Lote Zero • por tempo limitado</span>
+          <div class="normal">De <s>R$ 497</s></div>
+          <div class="big-price"><small>R$</small>297</div>
+          <p>
+            Condição especial para a próxima turma da Imersão GMV.
+          </p>
+
+          <div class="actions" style="margin-top:18px;">
+            <a class="btn btn-primary" href="https://pay.kiwify.com.br/x57S5zY" target="_blank" rel="noopener noreferrer">Garantir minha vaga</a>
+            <a class="btn btn-secondary" href="#faq">Tirar dúvidas</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-head">
+          <h2>Perguntas frequentes</h2>
+          <p>
+            FAQ reduz atrito, remove objeção e aumenta segurança para a decisão.
+          </p>
+        </div>
+
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h3>Essa imersão é teórica ou prática?</h3>
+            <p>Prática. O foco da GMV é implementação, clareza e direcionamento para aplicar no negócio.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>É só para quem já tem empresa grande?</h3>
+            <p>Não. É para empresários e empreendedores que querem organizar melhor gestão, marketing e vendas.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Preciso entender de marketing para aproveitar?</h3>
+            <p>Não. A proposta é justamente traduzir o que precisa ser feito com mais clareza e lógica prática.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Qual é a próxima edição?</h3>
+            <p>23/05/2026, em Cuiabá, com lote promocional aberto.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final">
+      <div class="container">
+        <div class="final-box">
+          <h2>Depois de duas edições realizadas, a próxima turma está aberta.</h2>
+          <p>
+            Agora a página comunica o que realmente aumenta conversão: prova, mecanismo, clareza de oferta e repetição inteligente de CTA.
+            O próximo passo é simples: garantir sua vaga para a próxima edição.
+          </p>
+
+          <div class="actions" style="justify-content:center; margin-top:24px;">
+            <a class="btn btn-primary" href="https://pay.kiwify.com.br/x57S5zY" target="_blank" rel="noopener noreferrer">Garantir minha vaga agora</a>
+            <a class="btn btn-secondary" href="#top">Voltar ao topo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Acelerador GMV • Gestão • Marketing • Vendas • Cuiabá • Próxima edição: 23/05/2026
+  </footer>
+
+  <div class="mobile-cta">
+    <a class="btn btn-primary" href="https://pay.kiwify.com.br/x57S5zY" target="_blank" rel="noopener noreferrer">Garantir vaga por R$ 297</a>
+  </div>
+
+  <script>
+    (function(){
+      const target = new Date("2026-05-23T08:00:00-04:00").getTime();
+      const days = document.getElementById("days");
+      const hours = document.getElementById("hours");
+      const minutes = document.getElementById("minutes");
+      const seconds = document.getElementById("seconds");
+
+      function pad(n){
+        return String(n).padStart(2, "0");
+      }
+
+      function updateCountdown(){
+        let diff = Math.max(0, target - Date.now());
+
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        diff -= d * (1000 * 60 * 60 * 24);
+
+        const h = Math.floor(diff / (1000 * 60 * 60));
+        diff -= h * (1000 * 60 * 60);
+
+        const m = Math.floor(diff / (1000 * 60));
+        diff -= m * (1000 * 60);
+
+        const s = Math.floor(diff / 1000);
+
+        days.textContent = pad(d);
+        hours.textContent = pad(h);
+        minutes.textContent = pad(m);
+        seconds.textContent = pad(s);
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    })();
+  </script>
 </body>
 </html>
